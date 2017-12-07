@@ -26,13 +26,16 @@ auto line_difference_minmax(std::vector<int> line) {
  * @return
  */
 auto evenly_divisible_value(std::vector<int> line) {
+
+    std::sort(line.begin(), line.end());
+
     for (std::size_t idx1=0; idx1<line.size()-1; ++idx1) {
         for (std::size_t idx2=1; idx2<line.size(); ++idx2) {
             auto v1 = line.at(idx1);
             auto v2 = line.at(idx2);
 
-            if ((v1 % v2 == 0) && (v1 / v2 != 1)) {
-                return v1 / v2;
+            if ((v2 % v1 == 0) && (v2 / v1 != 1)) {
+                return v2 / v1;
             }
         }
     }
@@ -51,25 +54,22 @@ int main() {
         auto count1 = 0;
         auto count2 = 0;
 
-//        while(getline(input_file, line)) {
-//            auto ilineit = std::istringstream(line);
-//            auto num_list = std::vector<std::string>(
-//                    std::istream_iterator<std::string>{ilineit},
-//                    std::istream_iterator<std::string>{}
-//            );
-//
-//            auto num_list_int = std::vector<int>();
-//            for (std::string c :num_list) {
-//                num_list_int.push_back(std::stoi(c));
-//            }
-//
-//            count1 += line_difference_minmax(num_list_int);
-//            count2 += evenly_divisible_value(num_list_int);
-//
-//        }
-//
-//        std::cout << count1 << std::endl;
-//        std::cout << count2 << std::endl;
+        while(getline(input_file, line)) {
+            auto token = std::string();
+            auto token_stream = std::istringstream(line);
+            auto tokens = std::vector<int>();
+
+            while(std::getline(token_stream, token, '\t')) {
+                tokens.push_back(std::stoi(token));
+            }
+
+            count1 += line_difference_minmax(tokens);
+            count2 += evenly_divisible_value(tokens);
+        }
+
+        std::cout << count1 << std::endl;
+        std::cout << count2 << std::endl;
+
     }
 
 }
