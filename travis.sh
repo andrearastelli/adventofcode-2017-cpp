@@ -8,3 +8,4 @@ echo $CC
 mkdir build || true
 cd build
 cmake ..
+cmake --build .
