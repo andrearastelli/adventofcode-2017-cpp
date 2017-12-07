@@ -15,5 +15,4 @@ addons:
       - g++-6
 
 script:
-  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
-  - cmake --build .
+  - ./travis.sh
