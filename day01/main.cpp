@@ -17,8 +17,6 @@ auto inverse_captcha(const std::string line, std::size_t step) {
 
     auto counter = 0;
 
-    std::cout << "Line length: " << line.length() << std::endl;
-
     for(std::size_t i=0; i<line.length(); ++i) {
         auto c1 = line.substr(i, 1);
         std::size_t idx2 = (i + step) % line.length();
@@ -44,7 +42,8 @@ int main() {
     if (input_file.is_open()) {
         while(getline(input_file, line)) {
             std::cout << inverse_captcha(line, 1) << std::endl;
-            std::size_t halfway = static_cast<std::size_t >(line.length() / 2);
+
+            auto halfway = static_cast<std::size_t >(line.length() / 2);
             std::cout << inverse_captcha(line, halfway) << std::endl;
         }
         input_file.close();
