@@ -7,4 +7,4 @@ compiler:
 notifications:
   email: false
 script:
-  - travis.sh
+  - ./travis.sh
