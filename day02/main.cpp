@@ -51,25 +51,25 @@ int main() {
         auto count1 = 0;
         auto count2 = 0;
 
-        while(getline(input_file, line)) {
-            auto ilineit = std::istringstream(line);
-            auto num_list = std::vector<std::string>(
-                    std::istream_iterator<std::string>{ilineit},
-                    std::istream_iterator<std::string>{}
-            );
-
-            auto num_list_int = std::vector<int>();
-            for (std::string c :num_list) {
-                num_list_int.push_back(std::stoi(c));
-            }
-
-            count1 += line_difference_minmax(num_list_int);
-            count2 += evenly_divisible_value(num_list_int);
-
-        }
-
-        std::cout << count1 << std::endl;
-        std::cout << count2 << std::endl;
+//        while(getline(input_file, line)) {
+//            auto ilineit = std::istringstream(line);
+//            auto num_list = std::vector<std::string>(
+//                    std::istream_iterator<std::string>{ilineit},
+//                    std::istream_iterator<std::string>{}
+//            );
+//
+//            auto num_list_int = std::vector<int>();
+//            for (std::string c :num_list) {
+//                num_list_int.push_back(std::stoi(c));
+//            }
+//
+//            count1 += line_difference_minmax(num_list_int);
+//            count2 += evenly_divisible_value(num_list_int);
+//
+//        }
+//
+//        std::cout << count1 << std::endl;
+//        std::cout << count2 << std::endl;
     }
 
 }
