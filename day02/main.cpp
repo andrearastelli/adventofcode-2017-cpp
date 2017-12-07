@@ -6,6 +6,12 @@
 #include <algorithm>
 
 
+/**
+ * Compute the difference between the min and max value from a list of int.
+ *
+ * @param line
+ * @return
+ */
 auto line_difference_minmax(std::vector<int> line) {
     std::sort(line.begin(), line.end());
 
@@ -13,6 +19,12 @@ auto line_difference_minmax(std::vector<int> line) {
 }
 
 
+/**
+ * Return the value of the division between the only two evenly divisible numbers in the list.
+ *
+ * @param line
+ * @return
+ */
 auto evenly_divisible_value(std::vector<int> line) {
     for (std::size_t idx1=0; idx1<line.size()-1; ++idx1) {
         for (std::size_t idx2=1; idx2<line.size(); ++idx2) {
@@ -43,7 +55,8 @@ int main() {
             auto ilineit = std::istringstream(line);
             auto num_list = std::vector<std::string>(
                     std::istream_iterator<std::string>{ilineit},
-                    std::istream_iterator<std::string>{});
+                    std::istream_iterator<std::string>{}
+            );
 
             auto num_list_int = std::vector<int>();
             for (std::string c :num_list) {
