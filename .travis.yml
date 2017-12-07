@@ -12,7 +12,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-7
+      - g++-6
 
 script:
   - ./travis.sh
