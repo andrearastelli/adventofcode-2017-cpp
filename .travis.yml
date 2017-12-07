@@ -26,5 +26,4 @@ install:
 
 script:
   - ./travis.sh
-  - ./build/day01/day01
-  - ./build/day02/day02
+  - ./runall.sh
