@@ -6,3 +6,5 @@ compiler:
   - gcc
 notifications:
   email: false
+script:
+  - travis.sh
