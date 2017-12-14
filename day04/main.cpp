@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 
 auto check_passphrase_duplicate(std::vector<std::string> passphrase_list) {
@@ -25,11 +26,19 @@ auto check_passphrase_duplicate(std::vector<std::string> passphrase_list) {
 
 auto check_passphrase_rearranged(std::vector<std::string> passphrase_list) {
 
-    for (const std::string item : passphrase_list) {
+    auto sorted_passphrases = std::map<std::string, int>();
 
+    for (std::string &item : passphrase_list) {
+        std::sort(item.begin(), item.end());
+
+        sorted_passphrases[item]++;
+
+        if (sorted_passphrases[item] > 1) {
+            return false;
+        }
     }
 
-    return false;
+    return true;
 }
 
 
@@ -39,7 +48,7 @@ int main() {
     assert(!check_passphrase_duplicate({"aa", "bb", "cc", "dd", "aa"}));
     assert(check_passphrase_duplicate({"aa", "bb", "cc", "dd", "aaa"}));
 
-    // assert(check_passphrase_rearranged({"abcde", "fghij"}));
+    assert(check_passphrase_rearranged({"abcde", "fghij"}));
 
     auto line = std::string();
     auto in_file = std::ifstream("day04/input.txt");
