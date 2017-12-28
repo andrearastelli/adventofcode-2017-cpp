@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+./travis.sh
+
 for file in ./build/day*
 do
     echo "Run: `basename $file`"
