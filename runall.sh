@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-./travis.sh
+/bin/bash ./travis.sh
 
 for file in ./build/day*
 do
